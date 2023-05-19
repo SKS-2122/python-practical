@@ -1,0 +1,596 @@
+# 1.	Write a  program  to enter two numbers and perform all arithmetic operations.
+a = int(input("Enter number 1: "))
+b = int(input("Enter number 2: "))
+print("Addition: ",a+b)
+print("Subtraction: ",a-b)
+print("Multiplication: ",a*b)
+print("Division: ",a/b)
+print("Floor Division: ", a//b)
+print("Modulus: ",a%b)
+print("Exponent: ",a**b)
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 2.	Write a  program to enter marks of five subjects and calculate total, average and percentage.
+a = list(map(int, input("Enter the marks of 5 subjects (separated by a space): ").split(" ")))
+print("Total: ",sum(a))
+print("Average: ",sum(a)/5)
+print("Percentage: ","{:.2f}".format((sum(a)/50)*100))
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 3.	Write a  program to enter length in centimeter and convert it into meter and kilometer, and also convert the same into Equivalents 
+a = int(input("Enter length in centimeter: "))
+in_meter = a/100    
+in_kilometer = a/10**5
+print(f"Length in meter: {in_meter}")
+print(f"Length in kilometer: {in_kilometer}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 4.	 WAP to check whether a number is palindrome or not
+a = int(input("Enter a number: "))
+if a == int(str(a)[::-1]):
+    print(f"{a} is a palindrome number")
+else:
+    print(f"{a} is not a palindrome number")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 5.	  WAP to check whether a number is Armstrong number or not
+a = int(input("Enter a number: "))
+temp = a
+sum = 0
+while(temp != 0):
+    digit = temp%10
+    sum += digit**3
+    temp = temp//10
+if(a == sum):
+    print(f"{a} is an armstrong number.")
+else:
+    print(f"{a} is not an armstrong number.")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 6.	  WAP to take 3 numbers from the user and print the greatest number
+a = int(input("Enter the first number: "))
+b = int(input("Enter the second number: "))
+c = int(input("Enter the third number: "))
+if(a > b and a > c):
+    print(f"The greatest number is {a}.")
+elif(b > a and b > c):
+    print(f"The greatest number is {b}.")
+elif(c > b and c > a):
+    print(f"The greatest number is {c}.")
+elif(a == b and a == c):
+    print(f"All three numbers are equal to each other.")
+elif(a != b or a != c):
+    print(f"All three numbers are different.")
+else:
+    print("Two numbers are equal and remaing one is diffeerent.")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 7.	   Write a python program to calculate area of 10 different circles. Given the pie = 22/7 
+#          and radius of the circles entered by user using Simple Function, Parameterized Function,
+#          Return Type with function and return type with parameterized Functions
+
+
+pi = 22/7
+
+#  Simple function
+def circle_area():
+    for i in range(1,11):
+        r = float(input(f"Enter the radius of circle {i}: "))
+        print("Area of circle {i}: ","{:.2f}".format(pi*r*r), " square units")
+
+circle_area()
+
+#  Parametrised function
+def circle_area(r,i):
+    print("Area of circle {i}: ","{:.2f}".format(pi*r*r), " square units")
+
+for i in range(1,11):
+    r = float(input(f"Enter the radius of circle {i}: "))
+    circle_area(r, i)
+
+#  return type with function
+def circle_area():
+    answer = ""
+    for i in range(1,11):
+        r = float(input(f"Enter the radius of circle {i}: "))
+        ans = "{:.2f}".format(pi*r*r)
+        answer += f"Area of circle {i}: {ans} square units\n"
+    return answer
+
+ans = circle_area().split("\n")
+for i in ans:
+    print(i)
+
+#  return type with parameterised function
+def circle_area(r):
+    return pi*r*r
+
+for i in range(1,11):
+    r = float(input(f"Enter the radius of circle {i}: "))
+    print("Area of circle {i}: ","{:.2f}".format(circle_area(r)), " square units")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 8.	   Write a python program to print Multiplication tables from 2 to 20 whether table values entered by user using Simple Function,
+#       Parameterized Function , Return Type with function and return type with parameterized Functions. Creating Simple function
+def print_tables():
+    for i in range (2,21):
+        for j in range(1,11):
+            print(f"{i} x {j} = {i*j}")
+        print()
+
+print_tables()
+# ----------------------------------------------------------------------------------------------
+
+#  Creating Parameterized function
+def print_table(num):
+    print(f"Table of {num} =>")
+    for j in range(1,11):
+        print(f"{num} x {j} = {num*j}")
+    print()
+
+for i in range(2,21):
+    print_table(i)
+# ----------------------------------------------------------------------------------------------------
+
+#   Creating Simple function with return type
+def tableNum():                 
+    table = ""                  
+    for j in range (2,21):
+        for i in range(1 , 11):
+            table += f"{j} x {i} = {j*i}\n"
+    return table
+
+t = tableNum()
+print(t)
+# --------------------------------------------------------------------------------------------------------
+
+#  Creating Return type with parameterized function
+def generate_table(num):
+    table = []            
+    for i in range(1,11):
+        table.append(num*i)
+    return table
+
+for i in range(2,21):
+    t = generate_table(i)
+    for j in range(1,11):
+        print(f"{i} x {j} = {t[j-1]}")     
+    print()
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 9.	   Write a Python program to check whether the string is Symmetrical or Palindrome.
+
+def palindrome_checks(s):
+    if s == s[::-1]:
+        return True
+    else:
+        return False
+
+s = input("Enter the string: ")
+if (palindrome_checks(s)):
+    print(f"{s} is a Palindrome")
+else:
+    print(f"{s} is not a Palindrome")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 10.	   Write a Python program to find uncommon words from two Strings.
+def unique_list(l):
+    lst = set(l)
+    lst = list(lst)
+
+def unique_word(s1,s2):
+    s = s1 + s2
+    ans = ""
+    for i in s:
+        if s.count(i) == 1:
+            ans += i + "\t"
+    return ans
+
+s1 = input("Enter string 1: ").split(" ")
+s2 = input("Enter string 2: ").split(" ")
+unique_list(s1)
+unique_list(s2)
+print(f"Unique words string: {unique_word(s1, s2)}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 11.	   Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string 
+#          already ends with 'ing' then add 'ly' instead. If the string length of the given string is less than 3, leave it unchanged.
+#          Example:- Sample String : 'abc' Expected Result : 'abcing' Sample String : 'string' Expected Result : 'stringly'.
+
+def add_ing(s):
+    return s + "ing"
+
+def add_ly(s):
+    return s + "ly"
+
+s = input("Enter a word: ")
+if(len(s) >= 3):
+    if(s[-3,-1] == "ing"):
+        print(add_ly(s))
+    else:
+        print(add_ing(s))
+else:
+    print(s)
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 12.	    Write a Python program to get a list, sorted in increasing order by the last element in each tuple from a given
+#           list of non-empty tuples.
+
+def lst_sort(l):
+    for i in range(0,len(l)):
+        for j in range(0,len(l)-1):
+            if(l[j][-1] > l[j+1][-1]):
+                l[j],l[j+1] = l[j+1],l[j]
+
+l = [(2, 5), (1, 2), (4, 4), (2, 3), (2, 1)]
+lst_sort(l)
+print(l)
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 13.	    Write a Python program to print a specified list after removing the 0th, 4th and 5th elements, 
+#           Sample List: ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow'], Expected Output: ['Green', 'White', 'Black']
+
+def lst_remove(l1):
+    l = l1.copy()
+    for i in range(0,len(l1)):
+        if(i == 0 or i == 4 or i == 5):
+            l.remove(l1[i])
+    return l
+    
+l1 = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow', "Purple"]
+print(lst_remove(l1))
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 14.	    Write a Python program to combine two dictionary adding values for common keys. d1 = {'a': 100, 'b': 200, 'c':300}, 
+#           d2 = {'a': 300, 'b': 200, 'd': 400}
+
+d1 = {'a': 100, 'b': 200, 'c':300}
+d2 = {'a': 300, 'b': 200, 'd': 400}
+print("Original dictionaries:")
+print(d1)
+print(d2)
+for i in d2:
+    if(i in d1):
+        d1[i] = d1[i] + d2[i]
+    else:
+        d1[i] = d2[i]
+print("Updated dictionary: \n",d1)
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 15.	     Write a Python program to find the highest 3 values of corresponding keys in a dictionary.
+
+my_dict = {'A': 67, 'B': 23, 'C': 45,'D': 56, 'E': 12, 'F': 69}
+x = list(my_dict.values())
+x.sort(reverse=True)
+x = x[:3]
+for i in x:
+    for j in my_dict.keys():
+        if(my_dict[j] == i):
+            print(f"Key: {j} \t Value: {i}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 16.	     Write a Python program to replace last value of tuples in a list
+
+l = [(10, 20, 40), (40, 50, 60), (70, 80, 90)]
+print("Original list: \n",l)
+for i in range(0,len(l)):
+    l[i] = l[i][:-1] + (50,)
+print("Updated list: \n", l)
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 17.	      Write a Python program to remove an empty tuple(s) from a list of tuples
+
+L = [(), (), ('',), ('a', 'b'), ('a', 'b', 'c'), ('d')]
+print("Original list: \n", L)
+l = L.copy()
+for i in l:
+    if(len(i) == 0):
+        L.remove(i)
+print("Updated List: \n", L)
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 18.	      Write a Python program calculate the product, multiplying all the numbers of a given tuple.
+
+t = (2, 4, 8, 8, 3, 2, 9)
+prod = 1
+for i in t:
+    prod *= i
+print("Product of all the elements of a tuple: ", prod)
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 19.	      Write a Python program to convert a tuple of string values to a tuple of integer values
+
+t = ('1', '2', '3', '4', '5', '6', '7', '8', '9')
+print("Original tuple: \n", t)
+t = tuple(map(int,t))
+print("Updated tuple: \n", t)
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 20.	      Write a Python program to check if a specified element presents in a tuple of tuples
+
+def check_ele(t,ele):
+    for i in t:
+        if(ele in i):
+            return 1
+        else:
+            return 0
+
+t = (("hello", "bye"), ("soon", "best"))
+print("Tuple: ")
+print(t)
+ele="hello"
+print(f"Element chacking : {ele}")
+if(check_ele(t, ele)):
+    print("Element is present in the tuple")
+else:
+    print("Element is not present in the tuple")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 21.	      Python program to implement linear search
+
+def linear_search(l, ele):
+    for i in range(0,len(l)):
+        if(l[i] == ele):
+            return i
+    return -1
+
+arr = [2, 7, 1, 5, 9]
+ele = 7
+print(f"Element {ele} is at index {linear_search(arr, ele)}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 22.	       Python program to implement bubble sort
+
+def bubble_sort(l):
+    for i in range(0,len(l)):
+        for j in range(0,len(l)-i-1):
+            if(l[j] > l[j+1]):
+                l[j], l[j+1] = l[j+1], l[j]
+    return l
+
+l = [2, 7, 1, 5, 9]
+print(f"Unsorted List : {l}")
+print(f"Sorted List : {bubble_sort(l)}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 23.	       Python program to implement binary search without recursion
+
+def binary_search(l,x):
+    low = 0
+    high = len(l)-1
+
+    while low <= high:
+        mid = ( high + low ) // 2
+        if(x > l[mid]):
+            low = mid+1
+        elif(x < l[mid]):
+            high = mid-1
+        elif(x == l[mid]):
+            return mid
+        else:
+            return -1
+
+l = [2, 7, 1, 5, 9]
+ele = 9
+print(f"Element {ele} is at index {binary_search(l, ele)}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 24.	       Python program to implement selection sort
+
+def selection_sort(l):
+    for i in range(0,len(l)):
+        min_ele_index = i
+        for j in range(i,len(l)-1):
+            if(l[min_ele_index] > l[j]):
+                min_ele_index = j
+        
+        l[i], l[min_ele_index] = l[min_ele_index], l[i]
+    return l
+
+l = [2, 7, 1, 5, 9]
+print(f"Unsorted List : {l}")
+print(f"Sorted List : {selection_sort(l)}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 25.	        Write a Python class named Student with two attributes student_id, student_name. Add a new attribute student_class
+#               and display the entire attribute and their values of the said class. Now remove the student_name attribute and 
+#               display the entire attribute with values
+
+class Student:
+    def __init__(self,stu_name,stu_age):
+        self.stu_name = stu_name
+        self.stu_age = stu_age
+    
+    def display(self):
+        attribute = vars(self)
+        print("Attribute and their values:")
+        for att,val in attribute.items():
+            print(f"{att} \t {val}")
+    
+    def remove_att(self,att_name):
+        if hasattr(self, att_name):
+            delattr(self, att_name)
+            print(f"{att_name} attribute has been removed")
+        else:
+            print(f"{att_name} does not exists")
+
+stu1 = Student('Aryan', 20)
+stu2 = Student('Aman', 23)
+stu1.standard = 9
+stu2.standard = 12
+stu1.display()
+print("===================================================")
+stu1.remove_att('standard')
+stu1.display()
+stu2.display()
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 26.	        Write a Python class named Rectangle constructed by a length and width and a method which will compute 
+#               the area of a rectangle
+
+class rec:
+    def __init__(self,length,width):
+        self.length = length
+        self.width = width
+    
+    def area(self):
+        return self.length*self.width
+
+r1 = rec(10, 15)
+print(f"Area of rectangle of length {r1.length} and width {r1.width}: {r1.area()}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 26.	         Write a Python class named Circle constructed by a radius and two methods which will compute the
+#                area and the perimeter of a circle
+
+class circle:
+    pi = 22/7
+
+    def __init__(self,r):
+        self.r = r
+    
+    def area(self):
+        return "{:.2f}".format(self.pi*self.r*self.r)
+
+    def perimeter(self):
+        return "{:.2f}".format(2*self.pi*self.r)
+
+c1 = circle(7.2)
+print(f"Area of circle of radius {c1.r}: {c1.area()}")
+print(f"Area of perimeter of radius {c1.r}: {c1.perimeter()}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 27.	          Write a Python program to crate two empty classes, Student and Marks. Now create some instances and 
+#                 check whether they are instances of the said classes or not. Also, check whether the said classes are
+#                 subclasses of the built-in object class or not
+
+class Student:
+    pass
+
+class Marks:
+    pass
+
+s1 = Student()
+m1= Marks()
+print("Instance checks =>")
+print(f"Is s1 an object of Student class? {isinstance(s1, Student)}")
+print(f"Is m1 an object of Student class? {isinstance(m1, Student)}")
+print(f"Is s1 an object of Student class? {isinstance(s1, Marks)}")
+print("Subclass checks =>")
+print(f"Is Student is subclass of Object class? {issubclass(Student, object)}")
+print(f"Is Marks is subclass of Object class? {issubclass(Marks, object)}")
+print(f"Is Marks is subclass of Sstudent class? {issubclass(Marks, Student)}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 28.	           2.	Write a Python class to find a pair of elements (indices of the two numbers) from a given array
+#                       whose sum equals a specific target number.
+class Pair:
+    def __init__(self, arr, target):
+        self.arr = arr
+        self.target = target
+
+    def find_pair(self):
+        for ele in self.arr:
+            if (ele[0]+ele[1]) == self.target:
+                return ele
+        else:
+            return "No Pair Found"
+
+lst = [(1,5),(6,8),(0,7),(9,2),(4,6)]
+t = Pair(lst, 10)
+print(f"From the list, the pair that has elements sum equal to target({t.target}) is: {t.find_pair()}")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 29.	           Write a Python program to generate 26 text files named A.txt, B.txt, and so on up to Z.txt
+for i in range(65,90):
+    f = open(f'{chr(i)}.txt','w')
+    f.write(f"This is {chr(i)} file")
+    f.close()
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 30.	             Write a Python program to read a random line from a file.
+import random
+
+f = open('practice\source.txt','r')
+lines = f.readlines()
+print(random.choice(lines))
+f.close()
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 31.	             Write a Python program to copy the contents of a file to another file
+f = open('practice\source.txt','r')
+f2 = open('practice\destination.txt','w')
+read = f.readlines()
+for i in read:
+    f2.write(i)
+f.close()
+f2.close()
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 32.	             Write a Python program to count the frequency of words in a file
+f = open('practice\source.txt','r')
+read_word = input("Enter the word: ")
+count = 0
+read = f.readlines()
+for line in read:
+    words = line.split(" ")
+    count += words.count(read_word)
+print(f"{read_word} appears {count} number of times.")
+
+print("\n\n=====================================================================================================================\n\n")
+
+# 33.	            Write a Python program to create a file where all letters of English alphabet are listed by
+#                   specified number of letters on each line
+def write_file(f,n):
+    i=65
+    while(i<91):
+        x=n
+        while(x > 0):
+            f.write(chr(i))
+            i += 1
+            x -= 1
+        f.write("\n")
+        x = 0
+
+f = open('hii.txt','w')
+n = int(input("Enter the number of characters: "))
+write_file(f, n)
+f.close()
+
+f = open('hii.txt','r')
+read = f.readlines()
+for line in read:
+    print(line)
+f.close()
